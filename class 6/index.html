@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <style>
+      body {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        background-color: slategray;
+        height: 100px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      main {
+        background-color: darkslategray;
+        height: calc(100vh - 100px);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .weather-box {
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+
+      <input type="text" placeholder="Enter location" id="input" />
+      <button id="btn1">Search</button>
+
+    </header>
+
+    <main>
+
+      <div class="weather-box">
+
+        <div class="temp">12.5°C</div>
+
+        <div class="middle">
+          <div class="city">Delhi</div>
+          <div class="date">9:30, Friday, 30-01-2026</div>
+        </div>
+
+        <div class="condition">
+          ☁️ <br />
+          Sunny
+        </div>
+
+      </div>
+    </main>
+
+    <script>
+        
+      let abcd = document.querySelector("#input");
+      let btn = document.querySelector("#btn1");
+      btn.addEventListener("click", () => {
+        let c = abcd.value;
+        if (c !== "") {
+          console.log(c);
+          abcd.value = "";
+        }
+      });
+    </script>
+
+  </body>
+</html>
