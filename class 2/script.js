@@ -1,89 +1,94 @@
-// //String
-// let str = "  Hello , I am Krishna  ";
+// //Function declaration
 
-// console.log(str.length); //for length
+// //1.Using Arguments
+// function greet(a){
+//     console.log("Hello", arguments)
+// }
+// greet(1,2,3,4,"ABC",true,11);
 
-// console.log(str.charAt(8)); //Character at that index
+// //for size
+// function NoOfArg(){
+//     console.log(arguments.length)
+// }
+// NoOfArg(1,2,3,4,5);
 
-// console.log(str.charCodeAt(8)); //ASCII CODE
+// //2.Using rest operator
 
-// console.log(str.substring(4)); //All Chars after index 4
+// function findArg(...arg){
+//     //print all arguments
+//     console.log(arg)
+// }
+// findArg(1,2,3)
 
-// console.log(str.substring(4, 10)); //print all chars from index 4 to 10-1;
+// function findArg(a,b,...arg){
+//     //print all arguments
+//     console.log(a,b,arg)
+// }
+// findArg(1,2,3,4,5,"apple")
 
-// console.log(str.substring(10, 4)); //will give the same output as above because the indices would be swapped before applying the substring function
+//Simple Order Pricing module
 
-// console.log(str.substring(-10)); //print from 0 to end of the string(-ve --> 0)
+// const price = 500;
+// const quantity = 20
+// const discount = 50;
+// const tax = 18
+//  function order(a){
+//     if(quantity >= 10){
+//        const payable = (price - discount) + tax;
+//     }
+//  }
 
-// //slice function 
-// let str1 = str.slice(10); // Print all the char after 10
-// console.log(str1);
 
-// //start < end
-// let sl1 = str.slice(10, 14);
-// console.log(sl1);
+// //this keyword
 
-// //start > end
-// let sl2 = str.slice(14, 10);
-// console.log(sl2); // print empty string
+// const x = {
+//     name: "Ash Ketcham",
+//     role: "Js Developer",
+//     exp: 30,
+//     show: function(){
+//         console.log("This inside method", this);
+//         //const that = this;
 
-// //-ve index
-// let sl3 = str.slice(-100);
+//         setTimeout(() => {
+//             console.log("this inside a function", this);
+//             console.log("Hi I am ", this.name);
 
-// console.log(sl3); //Print all char from the end or right of the string
+//             const sum = () => {
 
-// console.log(str.toLowerCase()); //print all char in lowercase
+//             }
+//         })
+//     }
 
-// console.log(str.toUpperCase()); //print all char in upppercase
+// }
 
-// console.log(str.trim()); //remove the spaces from start and end
 
-// console .log(str.includes("Krishna")); //search the given sunstring and return boolean and it's case sensitive
 
-//EXERCISE
+// //Nested function
+// let a = 10;
+// console.log(a);
+// function outer(){
+//     console.log("outer called")
+//     console.log(a);
 
-// let str = " Learn JavaScript Functions Arrow IIFE ";
+//     function inner(){
+//         console.log("inner called");
+//         console.log(a);
+//         let b = 100;
+//     }
+//     inner();
+// }
+// outer();
 
-// console.log(str.trim());
 
-// console.log(str.length);
+//Nested ques
 
-// console.log(str.toUpperCase());
+let x = 10;
+function outer(){
+    let x = 20;
 
-// console.log(str.substring(7, 17));
-
-// console.log(str.slice(7, 17));
-
-// console.log(str.includes("functions"));
-
-// console.log(str.includes("arrow"));
-
-// console.log(str.includes("iife"));
-
-// console.log(str.charAt(6));
-
-// console.log(str.charCodeAt(6));
-
-// let str2 = str.toLowerCase();
-
-// console.log(str2.includes("javascript"));
-
-//Slice 
-// let arr = [1,2,3,4,5,6,7,8];
-// console.log(arr);
-
-// //Another way to create an array
-// let arr2 = new Array(10,20,30,40);
-// console.log(arr2);
-
-// //To get a part of an Array
-// let subArr = arr.slice(2,6); //Return a sliced array
-// console.log(subArr);
-
-// //Splice --> Remove the elements 
-// arr.splice(2,3); //Remove three elements from index 2
-// console.log("Spliced arr:", arr);
-
-// //Remove and Add elements splice 
-// //(StartIndex, NoOfEle, Ele1, Ele2, Ele3.......,Elen)
-// arr.splice(2,2,10,20,30,40); 
+    function inner(){
+        console.log(x);
+    }
+    inner();
+}
+outer();
