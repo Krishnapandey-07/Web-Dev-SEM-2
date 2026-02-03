@@ -1,27 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Weather App</title>
 
-  <link rel="stylesheet" href="./reset.css" />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
+<!-- Animation Layer -->
+<div class="animation"></div>
+
 <header>
   <div class="input-container">
-
-    <input
-      type="text"
-      id="input"
-      placeholder="Enter location..."
-    />
-
+    <input type="text" id="input" placeholder="Enter location..."/>
     <button id="search">Search</button>
-
   </div>
 </header>
 
@@ -29,32 +24,21 @@
 
   <div class="weather-container">
 
-    <!-- Loading -->
     <div class="loading">Loading...</div>
-
-    <!-- Error -->
     <div class="error">City not found ❌</div>
 
-    <div class="temperature">12.5 °C</div>
+    <div class="temperature">-- °C</div>
 
     <div class="location-data">
-
-      <div class="location">Delhi</div>
-
-      <span class="time">9:15</span>
-      <span class="day">Friday</span>
-      <span class="date">2026-01-30</span>
-
+      <div class="location">City</div>
+      <span class="time">--:--</span>
+      <span class="day">Day</span>
+      <span class="date">Date</span>
     </div>
 
     <div class="weather-status">
       <div class="icon">
-
-        <img
-          src="//cdn.weatherapi.com/weather/64x64/night/143.png"
-          alt="weather-status-icon"
-        />
-
+        <img src="" alt="weather-icon"/>
       </div>
     </div>
 
@@ -63,6 +47,5 @@
 </main>
 
 <script src="script.js"></script>
-
 </body>
 </html>
