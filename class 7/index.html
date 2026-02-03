@@ -1,84 +1,68 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
 
-    <style>
-      body {
-        margin: 0;
-        box-sizing: border-box;
-      }
+  <link rel="stylesheet" href="./reset.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
 
-      header {
-        background-color: slategray;
-        height: 100px;
+<body>
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-      }
+<header>
+  <div class="input-container">
 
-      main {
-        background-color: darkslategray;
-        height: calc(100vh - 100px);
+    <input
+      type="text"
+      id="input"
+      placeholder="Enter location..."
+    />
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    <button id="search">Search</button>
 
-      .weather-box {
-        color: white;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        gap: 10px;
-      }
-    </style>
-  </head>
+  </div>
+</header>
 
-  <body>
-    <header>
+<main>
 
-      <input type="text" placeholder="Enter location" id="input" />
-      <button id="btn1">Search</button>
+  <div class="weather-container">
 
-    </header>
+    <!-- Loading -->
+    <div class="loading">Loading...</div>
 
-    <main>
+    <!-- Error -->
+    <div class="error">City not found ❌</div>
 
-      <div class="weather-box">
+    <div class="temperature">12.5 °C</div>
 
-        <div class="temp">12.5°C</div>
+    <div class="location-data">
 
-        <div class="middle">
-          <div class="city">Delhi</div>
-          <div class="date">9:30, Friday, 30-01-2026</div>
-        </div>
+      <div class="location">Delhi</div>
 
-        <div class="condition">
-          ☁️ <br />
-          Sunny
-        </div>
+      <span class="time">9:15</span>
+      <span class="day">Friday</span>
+      <span class="date">2026-01-30</span>
+
+    </div>
+
+    <div class="weather-status">
+      <div class="icon">
+
+        <img
+          src="//cdn.weatherapi.com/weather/64x64/night/143.png"
+          alt="weather-status-icon"
+        />
 
       </div>
-    </main>
+    </div>
 
-    <script>
-        
-      let abcd = document.querySelector("#input");
-      let btn = document.querySelector("#btn1");
-      btn.addEventListener("click", () => {
-        let c = abcd.value;
-        if (c !== "") {
-          console.log(c);
-          abcd.value = "";
-        }
-      });
-    </script>
+  </div>
 
-  </body>
+</main>
+
+<script src="script.js"></script>
+
+</body>
 </html>
