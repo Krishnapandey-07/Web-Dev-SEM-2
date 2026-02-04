@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+        }
+
+      div {
+        min-width: 200px;
+        min-height: 150px;
+        padding: 50px;
+        border-radius: 30px;
+      }
+      #box{
+        display: flex;
+        gap: 20px;
+      }
+      #grandparent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 70%;
+      }
+      #parent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+      }
+      #eventlog{
+        width: 30%;
+        background-color: wheat;
+      }
+      #btn{
+        background-color: green;
+        height: 40px;
+        width: 100px;
+        border-radius: 10px;
+        color: white;
+      }
+      #btn2{
+        background-color: green;
+        height: 40px;
+        width: 100px;
+        border-radius: 10px;
+        color: white;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Event Flow Playground</h1>
+    <p>Demonstraiting Capturing, Bubbling & Propagation Control</p>
+    <div id="box">
+    <div id="grandparent" style="background-color: lightpink">
+      <h1>Grandparent</h1>
+      <div id="parent" style="background-color: skyblue">
+        <h1>Parent</h1>
+        <button id="btn">Click Me</button>
+      </div>
+    </div>
+    <div id="eventlog">
+        <h2>Event Log</h2>
+        <ul id="list">
+
+        </ul>
+        <div style="color: white;">
+        <p>Capturing -> Target -> Bubbling</p>
+        <p>stopPropagation blocks parent</p>
+        <p>stopImmeiatePropagation blocks sibling handlers</p>
+        </div>
+        <button id="btn2">Clear btn</button>
+    </div>
+    </div>
+    <script src="script2.js"></script>
+  </body>
+</html>
