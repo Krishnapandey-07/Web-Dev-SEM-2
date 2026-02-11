@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Box Game</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: skyblue;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    /* Game Box */
+    #game {
+      width: 400px;
+      height: 500px;
+      background: white;
+      border: 3px solid black;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    /* Score */
+    #score {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background: lightblue;
+      padding: 4px 8px;
+      font-weight: bold;
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    /* Red Box */
+    #box {
+      width: 50px;
+      height: 50px;
+      background: red;
+      position: absolute;
+      top: 40px;
+      left: 20px;
+      cursor: pointer;
+    }
+
+    /* Info */
+    #info {
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    /* Button */
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: green;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Click Box Game 🎯</h1>
+
+  <div id="game">
+
+    <div id="score">Score: 0</div>
+
+    <div id="box"></div>
+
+  </div>
+
+  <div id="info">
+    Time: <span id="time">30</span>s
+  </div>
+
+  <button onclick="restartGame()">Restart</button>
+
+
+  <script>
+
+    let box = document.getElementById("box");
+    let game = document.getElementById("game");
+    let scoreText = document.getElementById("score");
+    let timeText = document.getElementById("time");
+
+    let score = 0;
+    let time = 30;
+
+    let timer = null;
+    let gameStarted = false;
+
+
+
+    // Move box randomly (without touching score)
+    function moveBox() {
+
+      let gameWidth = game.clientWidth;
+      let gameHeight = game.clientHeight;
+
+      let boxSize = 50;
+      let scoreHeight = 35; // space for score
+
+      let x = Math.random() * (gameWidth - boxSize);
+
+      let y = Math.random() * (gameHeight - boxSize - scoreHeight)
+              + scoreHeight;
+
+
+      box.style.left = x + "px";
+      box.style.top = y + "px";
+    }
+
+
+
+    // Start Timer
+    function startTimer() {
+
+      if (gameStarted) return;
+
+      gameStarted = true;
+
+      timer = setInterval(function () {
+
+        time--;
+        timeText.textContent = time;
+
+        if (time === 0) {
+
+          clearInterval(timer);
+
+          box.style.display = "none";
+
+          alert("Game Over!\nYour Score: " + score);
+        }
+
+      }, 1000);
+    }
+
+
+
+    // When box is clicked
+    box.addEventListener("click", function () {
+
+      // Start timer on first click
+      startTimer();
+
+      if (time === 0) return;
+
+      score++;
+
+      scoreText.textContent = "Score: " + score;
+
+      moveBox();
+    });
+
+
+
+    // Restart Game
+    function restartGame() {
+
+      clearInterval(timer);
+
+      score = 0;
+      time = 30;
+      gameStarted = false;
+
+      scoreText.textContent = "Score: 0";
+      timeText.textContent = "30";
+
+      box.style.display = "block";
+
+      moveBox();
+    }
+
+
+    // Initial position
+    moveBox();
+
+  </script>
+
+</body>
+</html>
