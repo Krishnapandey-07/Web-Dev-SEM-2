@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box{
+            background-color: white;
+            width: 300px;
+            height: 400px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+            padding-top: 30px;
+        }
+        h1{
+            font-family: Arial;
+        }
+
+        #count{
+            font-size: 80px;
+            color: blue;
+            margin-top: 40px;
+        }
+
+        .buttons{
+            margin-top: 60px;
+        }
+
+        button{
+            padding: 10px 15px;
+            border: none;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .minus{
+            background-color: red;
+            color: white;
+        }
+
+        .reset{
+            background-color: yellow;
+        }
+
+        .add{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Counter App</h1>
+
+        <div id="count">0</div>
+
+        <div class="buttons">
+            <button class="minus" onclick="decrease()">-</button>
+            <button class="reset" onclick="reset()">reset</button>
+            <button class="add" onclick="increase()">+</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
