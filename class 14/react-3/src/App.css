@@ -1,0 +1,182 @@
+/* ─── Page wrapper ─────────────────────────────────────────── */
+.app-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f4f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ─── Card box ──────────────────────────────────────────────── */
+.app-box {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 520px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── Heading ───────────────────────────────────────────────── */
+.app-heading {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a202c;
+  letter-spacing: -0.5px;
+}
+
+/* ─── Input row ─────────────────────────────────────────────── */
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.task-input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #2d3748;
+  background: #f7fafc;
+}
+
+.task-input:focus {
+  border-color: #2563eb;
+}
+
+/* ─── Add button ────────────────────────────────────────────── */
+.add-btn {
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #2563eb;
+  color: #fff;
+  border: 2px solid #2563eb;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
+  border-color: #1e3a8a;
+  transform: translateY(-1px);
+}
+
+/* ─── Filter row ────────────────────────────────────────────── */
+.filter-row {
+  display: flex;
+  gap: 14px;
+}
+
+/* ─── Filter buttons ────────────────────────────────────────── */
+.filter-btn {
+  flex: 1;
+  padding: 14px 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #f0f4f8;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.1s;
+  letter-spacing: 0.3px;
+}
+
+.filter-btn:hover {
+  background: #dbeafe;
+  border-color: #2563eb;
+  color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #1d4ed8;
+}
+
+.filter-btn.active:hover {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #fff;
+  transform: none;
+}
+
+/* ─── Stats bar ─────────────────────────────────────────────── */
+.stats {
+  font-size: 13px;
+  color: #718096;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin: 0;
+}
+
+/* ─── Task list ─────────────────────────────────────────────── */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+/* ─── Task item ─────────────────────────────────────────────── */
+.task-item {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  background: #f7fafc;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2d3748;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.15s;
+  user-select: none;
+}
+
+.task-item:hover {
+  background: #ebf4ff;
+  border-color: #2563eb;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.10);
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: #38a169;
+  background: #f0fff4;
+  border-color: #c6f6d5;
+}
+
+.task-item.completed:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.10);
+}
+
+/* ─── Empty message ─────────────────────────────────────────── */
+.empty-msg {
+  text-align: center;
+  color: #a0aec0;
+  font-size: 14px;
+  margin-top: 20px;
+}
