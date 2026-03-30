@@ -1,0 +1,336 @@
+/* ── Google Font ── */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --sky: #5c94fc;
+  --sky-dark: #3a6fd8;
+  --ground: #c84b0e;
+  --ground-top: #5b8a23;
+  --card-bg: #5c94fc;
+  --card-border: #1a3a8a;
+  --coin-gold: #f8d030;
+  --btn-brown: #b45309;
+  --btn-brown-dark: #7c3a05;
+  --btn-orange: #ea580c;
+  --btn-face: #fde68a;
+  --text-white: #ffffff;
+  --text-shadow: #1a1a2e;
+  --green: #22c55e;
+  --red: #ef4444;
+  --font: 'Press Start 2P', monospace;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--sky);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Sky wrapper ── */
+.sky {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #3a6fd8 0%, var(--sky) 60%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+/* ── Clouds ── */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.9;
+}
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+.cloud1 { width: 80px; height: 24px; top: 8%; left: 10%; animation: drift 12s linear infinite; }
+.cloud1::before { width: 36px; height: 36px; top: -18px; left: 10px; }
+.cloud1::after  { width: 24px; height: 24px; top: -10px; left: 38px; }
+
+.cloud2 { width: 110px; height: 28px; top: 15%; right: 12%; animation: drift 18s linear infinite reverse; }
+.cloud2::before { width: 44px; height: 44px; top: -22px; left: 16px; }
+.cloud2::after  { width: 30px; height: 30px; top: -14px; left: 52px; }
+
+.cloud3 { width: 60px; height: 18px; top: 5%; left: 55%; animation: drift 9s linear infinite; }
+.cloud3::before { width: 28px; height: 28px; top: -14px; left: 8px; }
+.cloud3::after  { width: 18px; height: 18px; top: -8px;  left: 30px; }
+
+@keyframes drift {
+  from { transform: translateX(-20px); }
+  to   { transform: translateX(20px); }
+}
+
+/* ── Game Card ── */
+.game-card {
+  background: var(--card-bg);
+  border: 4px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px 28px 16px;
+  width: min(480px, 92vw);
+  box-shadow: 0 8px 0 var(--card-border), 0 12px 32px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 10;
+}
+
+.game-card.shake {
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(8px); }
+  60%      { transform: translateX(-6px); }
+  80%      { transform: translateX(6px); }
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+.title {
+  font-size: 11px;
+  color: var(--text-white);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 var(--text-shadow);
+}
+
+/* ── Coin Bar ── */
+.coin-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1a1a2e;
+  border: 3px solid #fbbf24;
+  border-radius: 8px;
+  padding: 8px 20px;
+  margin-bottom: 18px;
+  transition: transform 0.1s;
+}
+.coin-bar.coin-pop {
+  animation: coinPop 0.4s ease;
+}
+@keyframes coinPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.coin-icon { font-size: 18px; }
+.coin-text {
+  font-size: 12px;
+  color: var(--coin-gold);
+  text-shadow: 1px 1px 0 #7c3a05;
+  letter-spacing: 1px;
+}
+
+/* ── Character Row ── */
+.character-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.face-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Pixel Mario Face ── */
+.mario-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.3s ease;
+}
+.mario-face.super-face {
+  transform: scale(1.15);
+}
+
+.mario-hat {
+  width: 36px;
+  height: 14px;
+  background: #dc2626;
+  border-radius: 4px 4px 0 0;
+  border: 2px solid #991b1b;
+  position: relative;
+}
+.mario-hat::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  height: 5px;
+  background: #dc2626;
+  border: 2px solid #991b1b;
+  border-radius: 2px;
+}
+
+.mario-eyes {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+.eye {
+  width: 8px;
+  height: 8px;
+  background: #1a1a2e;
+  border-radius: 2px;
+  display: block;
+}
+
+.mario-mustache {
+  width: 28px;
+  height: 8px;
+  background: #1a1a2e;
+  border-radius: 4px;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+/* ── Mushroom beside face ── */
+.mushroom-side {
+  font-size: 28px;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.mushroom-side.slide-in {
+  animation: slideIn 0.5s ease forwards;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Status Label ── */
+.status-label { text-align: center; }
+
+.regular-text {
+  font-size: 9px;
+  color: var(--text-white);
+  background: rgba(0,0,0,0.3);
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.super-text {
+  font-size: 9px;
+  color: var(--coin-gold);
+  background: rgba(0,0,0,0.5);
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #7c3a05;
+  animation: superPulse 1s ease-in-out infinite alternate;
+}
+@keyframes superPulse {
+  from { opacity: 0.85; }
+  to   { opacity: 1; letter-spacing: 2px; }
+}
+
+/* ── Buttons Row ── */
+.btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.block-btn {
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-family: var(--font);
+  position: relative;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.4);
+}
+
+.block-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+/* Question blocks — classic brown */
+.question-btn {
+  background: var(--btn-orange);
+  border: 3px solid var(--btn-brown-dark);
+}
+.question-btn .block-face {
+  font-size: 22px;
+  font-family: var(--font);
+  color: var(--text-white);
+  text-shadow: 1px 1px 0 var(--text-shadow);
+}
+.question-btn:hover { background: #fb923c; }
+
+/* Mushroom block — green */
+.mushroom-btn {
+  background: var(--green);
+  border: 3px solid #15803d;
+}
+.mushroom-btn:hover:not(:disabled) { background: #4ade80; }
+.mushroom-btn.used {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Ghost block — dark/spooky */
+.ghost-btn {
+  background: #374151;
+  border: 3px solid #111827;
+}
+.ghost-btn:hover { background: #4b5563; }
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid rgba(255,255,255,0.2);
+  padding-top: 12px;
+}
+.world-text, .time-text {
+  font-size: 7px;
+  color: var(--text-white);
+  text-shadow: 1px 1px 0 var(--text-shadow);
+  letter-spacing: 1px;
+}
+.lives { display: flex; gap: 4px; font-size: 12px; }
+
+/* ── Ground ── */
+.ground {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: var(--ground);
+  border-top: 8px solid var(--ground-top);
+  z-index: 5;
+}
